@@ -1,319 +1,144 @@
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biano Web Rádio</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta name="description"
-          content="Biano Web Rádio - Música, informação e entretenimento 24 horas por dia.">
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #111827, #1e3a8a);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    <meta name="theme-color"
-          content="#111827">
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
 
-    <title>Biano Web Rádio | Ao Vivo</title>
+        .logo {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+        .subtitle {
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
 
-    <!-- Ícone da página -->
-    <link rel="icon" href="favicon.png" type="image/png">
+        .radio-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .radio-icon {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .status {
+            color: #4ade80;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social a {
+            color: #fff;
+            text-decoration: none;
+            background: #2563eb;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: #38bdf8;
+            color: #111827;
+        }
+
+        footer {
+            margin-top: 25px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- =========================
-         CABEÇALHO
-    ========================== -->
+    <div class="container">
 
-    <header class="header">
+        <div class="logo">BIANO</div>
 
-        <div class="header-content">
+        <p class="subtitle">Web Rádio — Música, informação e entretenimento</p>
 
-            <a href="#" class="logo">
-                BIANO
-                <span>WEB RÁDIO</span>
-            </a>
+        <div class="radio-box">
 
-            <nav class="menu">
-                <a href="#radio">Rádio</a>
-                <a href="#programacao">Programação</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#contato">Contato</a>
-            </nav>
+            <div class="radio-icon">📻</div>
 
-        </div>
+            <h2>Biano Web Rádio</h2>
 
-    </header>
+            <p class="status">● AO VIVO</p>
 
+            <!--
+                Substitua o endereço abaixo pela URL do streaming
+                da sua rádio.
+            -->
+            <audio controls autoplay>
+                <source src="https://SEU-SERVIDOR-DE-STREAMING/stream" type="audio/mpeg">
+                Seu navegador não suporta o player de áudio.
+            </audio>
 
-    <main>
-
-        <!-- =========================
-             ÁREA PRINCIPAL
-        ========================== -->
-
-        <section id="radio" class="hero">
-
-            <div class="hero-content">
-
-                <div class="radio-icon">
-                    📻
-                </div>
-
-                <p class="live-status">
-                    <span></span> NO AR AGORA
-                </p>
-
-                <h1>
-                    Biano Web Rádio
-                </h1>
-
-                <p class="hero-description">
-                    A sua rádio na internet.
-                    Música, informação e entretenimento
-                    para você curtir onde estiver.
-                </p>
-
-                <!-- PLAYER -->
-
-                <div class="player">
-
-                    <div class="player-info">
-
-                        <div class="album-icon">
-                            🎵
-                        </div>
-
-                        <div>
-                            <strong>Biano Web Rádio</strong>
-                            <span>Transmitindo ao vivo</span>
-                        </div>
-
-                    </div>
-
-                    <audio controls>
-                        <source
-                            src="https://SEU-SERVIDOR-DE-STREAMING/stream"
-                            type="audio/mpeg">
-
-                        Seu navegador não suporta
-                        o player de áudio.
-                    </audio>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROGRAMAÇÃO
-        ========================== -->
-
-        <section id="programacao" class="section">
-
-            <div class="section-title">
-
-                <span>📅</span>
-
-                <div>
-                    <p>CONFIRA</p>
-                    <h2>Programação</h2>
-                </div>
-
-            </div>
-
-
-            <div class="schedule">
-
-                <article class="program">
-
-                    <div class="program-time">
-                        08:00
-                    </div>
-
-                    <div class="program-info">
-                        <h3>Manhã Biano</h3>
-                        <p>
-                            Música para começar o dia
-                            com muita energia.
-                        </p>
-                    </div>
-
-                </article>
-
-
-                <article class="program">
-
-                    <div class="program-time">
-                        12:00
-                    </div>
-
-                    <div class="program-info">
-                        <h3>Hora da Música</h3>
-                        <p>
-                            Os maiores sucessos
-                            para você curtir.
-                        </p>
-                    </div>
-
-                </article>
-
-
-                <article class="program">
-
-                    <div class="program-time">
-                        18:00
-                    </div>
-
-                    <div class="program-info">
-                        <h3>Fim de Tarde</h3>
-                        <p>
-                            Música e entretenimento
-                            para fechar o dia.
-                        </p>
-                    </div>
-
-                </article>
-
-
-                <article class="program">
-
-                    <div class="program-time">
-                        22:00
-                    </div>
-
-                    <div class="program-info">
-                        <h3>Biano Night</h3>
-                        <p>
-                            Os melhores sons da noite.
-                        </p>
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SOBRE
-        ========================== -->
-
-        <section id="sobre" class="section about">
-
-            <div class="section-title">
-
-                <span>🎙️</span>
-
-                <div>
-                    <p>CONHEÇA</p>
-                    <h2>Sobre a Biano</h2>
-                </div>
-
-            </div>
-
-            <div class="about-content">
-
-                <p>
-                    A <strong>Biano Web Rádio</strong> nasceu
-                    para levar música, informação e
-                    entretenimento até você.
-                </p>
-
-                <p>
-                    Nossa programação foi pensada para
-                    acompanhar você durante todos os
-                    momentos do seu dia.
-                </p>
-
-                <p>
-                    Aperte o play e venha fazer parte
-                    da nossa audiência!
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             REDES SOCIAIS
-        ========================== -->
-
-        <section id="contato" class="section social-section">
-
-            <div class="section-title">
-
-                <span>📱</span>
-
-                <div>
-                    <p>ACOMPANHE</p>
-                    <h2>Fique conectado</h2>
-                </div>
-
-            </div>
-
+            <p>Ouça a Biano Web Rádio onde estiver!</p>
 
             <div class="social">
-
-                <a href="#"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Instagram
-                </a>
-
-                <a href="#"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Facebook
-                </a>
-
-                <a href="#"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    WhatsApp
-                </a>
-
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">WhatsApp</a>
             </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         RODAPÉ
-    ========================== -->
-
-    <footer class="footer">
-
-        <div class="footer-content">
-
-            <div class="footer-logo">
-                BIANO
-                <span>WEB RÁDIO</span>
-            </div>
-
-            <p>
-                Música, informação e entretenimento.
-            </p>
-
-            <p class="copyright">
-                © 2026 Biano Web Rádio.
-                Todos os direitos reservados.
-            </p>
 
         </div>
 
-    </footer>
+        <footer>
+            © 2026 Biano Web Rádio — Todos os direitos reservados.
+        </footer>
 
+    </div>
 
 </body>
 </html>
