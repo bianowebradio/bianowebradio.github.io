@@ -13,7 +13,23 @@
     content="Morena Jazz Web Rádio — jazz online 24 horas."
   >
 
+  <!-- Open Graph (WhatsApp, Facebook, etc.) -->
+  <meta property="og:title" content="Morena Jazz Web Rádio">
+  <meta property="og:description" content="A rádio que conecta você ao melhor do jazz internacional. Ouça ao vivo de qualquer lugar.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Morena Jazz Web Rádio">
+  <meta name="twitter:description" content="A rádio que conecta você ao melhor do jazz internacional.">
+
   <title>Morena Jazz Web Rádio</title>
+
+  <!-- Google Fonts: Playfair Display (display/títulos) + Inter (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================
@@ -32,6 +48,7 @@
 
     body {
       font-family:
+        'Inter',
         Arial,
         Helvetica,
         sans-serif;
@@ -225,6 +242,8 @@
       z-index: 2;
     }
 
+    /* player-wrapper já herdará position via layout */
+
     .live-badge {
       display: inline-flex;
 
@@ -289,6 +308,8 @@
     }
 
     .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+
       font-size:
         clamp(
           45px,
@@ -298,7 +319,7 @@
 
       line-height: 0.98;
 
-      letter-spacing: -4px;
+      letter-spacing: -2px;
 
       margin-bottom: 25px;
     }
@@ -528,6 +549,8 @@
     }
 
     .section-heading h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+
       font-size: 40px;
 
       margin-bottom: 12px;
@@ -682,6 +705,137 @@
 
 
     /* =========================
+       ANIMAÇÃO DE ENTRADA
+    ========================= */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-text {
+      animation: fadeUp 0.75s ease both;
+    }
+
+    .player-wrapper {
+      animation: fadeUp 0.75s 0.18s ease both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-text,
+      .player-wrapper {
+        animation: none;
+      }
+    }
+
+
+    /* =========================
+       MENU HAMBÚRGUER (MOBILE)
+    ========================= */
+
+    .menu-toggle {
+      display: none;
+
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+
+      width: 40px;
+      height: 40px;
+
+      background: none;
+      border: none;
+
+      cursor: pointer;
+
+      padding: 4px;
+
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      display: block;
+
+      width: 22px;
+      height: 2px;
+
+      background: #ffffff;
+
+      border-radius: 2px;
+
+      transition: 0.3s;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-mobile {
+      display: none;
+
+      position: fixed;
+      top: 75px;
+      left: 0;
+
+      width: 100%;
+
+      background: rgba(8, 7, 11, 0.97);
+
+      backdrop-filter: blur(20px);
+
+      border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+      flex-direction: column;
+      align-items: center;
+
+      gap: 0;
+
+      z-index: 999;
+
+      padding: 10px 0 20px;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .nav-mobile a {
+      width: 100%;
+
+      text-align: center;
+
+      padding: 16px 20px;
+
+      color: #d7d7dc;
+
+      font-size: 15px;
+      font-weight: 600;
+
+      transition: 0.2s;
+    }
+
+    .nav-mobile a:hover {
+      color: #ff3b91;
+    }
+
+
+    /* =========================
        MOBILE
     ========================= */
 
@@ -689,6 +843,10 @@
 
       nav {
         display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
       }
 
       .hero {
@@ -808,7 +966,7 @@
       </a>
 
 
-      <nav>
+      <nav aria-label="Menu principal">
 
         <a href="#inicio">
           Início
@@ -828,9 +986,34 @@
 
       </nav>
 
+      <!-- Hambúrguer mobile -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navMobile"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
 
   </header>
+
+  <!-- Nav mobile -->
+  <nav
+    class="nav-mobile"
+    id="navMobile"
+    aria-label="Menu mobile"
+  >
+    <a href="#inicio" class="nav-mobile-link">Início</a>
+    <a href="#programacao" class="nav-mobile-link">Programação</a>
+    <a href="#sobre" class="nav-mobile-link">Sobre</a>
+    <a href="#contato" class="nav-mobile-link">Contato</a>
+  </nav>
 
 
 
@@ -1124,6 +1307,8 @@
         <a
           href="#"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Morena Jazz Web Rádio no Instagram"
         >
           📸 Instagram
         </a>
@@ -1132,6 +1317,8 @@
         <a
           href="#"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Morena Jazz Web Rádio no Facebook"
         >
           👍 Facebook
         </a>
@@ -1140,6 +1327,8 @@
         <a
           href="#"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Morena Jazz Web Rádio no WhatsApp"
         >
           💬 WhatsApp
         </a>
@@ -1148,6 +1337,8 @@
         <a
           href="#"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Morena Jazz Web Rádio no YouTube"
         >
           ▶ YouTube
         </a>
@@ -1171,6 +1362,28 @@
 
   </footer>
 
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const navMobile = document.getElementById('navMobile');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navMobile.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    });
+
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.nav-mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMobile.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menu');
+      });
+    });
+  </script>
 
 </body>
 </html>
